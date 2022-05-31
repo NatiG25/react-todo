@@ -24,11 +24,22 @@ export default class TodoContainer extends React.Component {
               ]
         }
     }
+    handleChange = id => {
+      this.setState({
+        todos: this.state.todos.map(todo => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed;
+          }
+          return todo;
+        })
+      });
+    };
+    
     render() {
         return (
           <React.Fragment>
             <Header/>
-            <TodoList todos={this.state.todos} />
+            <TodoList todos={this.state.todos} handleChangeProps={this.handleChange}/>
           </React.Fragment>
         )
     }

@@ -1,13 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Header = () => {
-    return (
-        <React.Fragment>
-            <header>
-                <h1>todos</h1>
-            </header>
-        </React.Fragment>
-    )
-}
+const Header = () => (
+  <header>
+    <h1>todos</h1>
+  </header>
+);
 
 export default Header;

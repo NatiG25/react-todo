@@ -10,12 +10,12 @@ const TodosLogic = () => {
             completed: true,
         },
         {
-            id: 1,
+            id: 2,
             title: 'Fixing',
             completed: false,
         },
         {
-            id: 1,
+            id: 3,
             title: 'Washing',
             completed: false,
         },
@@ -24,7 +24,7 @@ const TodosLogic = () => {
     return (
         <>
             <InputTodo />
-            <TodosList todos={todos} />
+            <TodosList todosProps={todos} />
         </>
     )
 }

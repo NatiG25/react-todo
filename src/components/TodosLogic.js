@@ -20,11 +20,33 @@ const TodosLogic = () => {
             completed: false,
         },
     ])
-    // console.log(todos);
+
+    const handleCheckboxChange = (id) => {
+        setTodos((prevState) =>
+        prevState.map((todo) => {
+          if (todo.id === id) {
+            return {
+              ...todo,
+              completed: !todo.completed,
+            };
+          }
+          return todo;
+        })
+      );
+      }
+
+    const delTodo = (id) => {
+        setTodos([
+          ...todos.filter((todo) => {
+            return todo.id !== id
+          })
+        ])
+      }
+    
     return (
         <>
             <InputTodo />
-            <TodosList todosProps={todos} />
+            <TodosList todosProps={todos} handleCheckboxChange={handleCheckboxChange} delTodo={delTodo} />
         </>
     )
 }

@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodosList";
+import { v4 as uuidv4 } from "uuid";
 
 const TodosLogic = () => {
     const [todos, setTodos] = useState([
         {
-            id: 1,
+            id: uuidv4(),
             title: 'Cleaning',
             completed: true,
-        },
-        {
-            id: 2,
-            title: 'Fixing',
-            completed: false,
-        },
-        {
-            id: 3,
-            title: 'Washing',
-            completed: false,
         },
     ])
 
@@ -47,7 +38,7 @@ const TodosLogic = () => {
         setTodos([
             ...todos,
             {
-                id: 4,
+                id: uuidv4(),
                 title,
                 completed: false,
             }

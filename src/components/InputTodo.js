@@ -1,9 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 
-const InputTodo = () => {
+const InputTodo = ({addNewTodo}) => {
+  const [title, setTitle] = useState('');
+  const handleChange = (e) => {
+    // console.log(e.target.value);
+    setTitle(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addNewTodo(title);
+    setTitle('');
+  }
+
     return (
         <>
-            <p>Input field here ...</p>
+            <form onSubmit={handleSubmit}>
+              <input type="text" placeholder="Todo" value={title} onChange={handleChange} />
+              <button type="submit">Submit</button>
+            </form>
         </>
     )
 }

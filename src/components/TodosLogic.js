@@ -42,10 +42,21 @@ const TodosLogic = () => {
           })
         ])
       }
+
+    const addNewTodo = (title) => {
+        setTodos([
+            ...todos,
+            {
+                id: 4,
+                title,
+                completed: false,
+            }
+        ])
+    }
     
     return (
         <>
-            <InputTodo />
+            <InputTodo addNewTodo={addNewTodo} />
             <TodosList todosProps={todos} handleCheckboxChange={handleCheckboxChange} delTodo={delTodo} />
         </>
     )

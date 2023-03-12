@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styles from "../styles/TodoItem.module.css"
 
-const TodoItem = ({itemProps, handleCheckboxChange, delTodo}) => {
+const TodoItem = ({itemProps, handleCheckboxChange, delTodo, setUpdate}) => {
 const [editing, setEditing] = useState(false)
 
 const completedStyle = {
@@ -23,6 +23,12 @@ if (editing) {
 const handleEditing = () => {
   setEditing(true)
 }
+
+const handleUpdatedDone = (e) => {
+  if (e.key === 'Enter') {
+    setEditing(false);
+  }
+}
     return (
         <li className={styles.item}>
           <div className={styles.content} style={viewMode}>
@@ -42,7 +48,8 @@ const handleEditing = () => {
             value={itemProps.title}
             className={styles.textInput}
             style={editMode}
-            onChange={(e) => log}
+            onChange={(e) => setUpdate(e.target.value, itemProps.id)}
+            onKeyDown={(e) => handleUpdatedDone(e)}
           />
         </li>
     )

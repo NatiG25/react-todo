@@ -4,7 +4,6 @@ const InputTodo = ({addNewTodo}) => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const handleChange = (e) => {
-    // console.log(e.target.value);
     setTitle(e.target.value);
   }
 

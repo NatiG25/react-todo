@@ -11,12 +11,21 @@ const completedStyle = {
   textDecoration: 'line-through',
 }
 
+let viewMode = {};
+let editMode = {};
+
+if (editing) {
+  viewMode.display = "none";
+} else {
+  editMode.display = "none";
+}
+
 const handleEditing = () => {
   setEditing(true)
 }
     return (
         <li className={styles.item}>
-          <div className={styles.content}>
+          <div className={styles.content} style={viewMode}>
             <input 
               type="checkbox"
               checked={itemProps.completed}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
@@ -32,6 +41,7 @@ const handleEditing = () => {
             type="text"
             value={itemProps.title}
             className={styles.textInput}
+            style={editMode}
           />
         </li>
     )

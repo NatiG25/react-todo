@@ -44,11 +44,26 @@ const TodosLogic = () => {
             }
         ])
     }
+
+    const setUpdate = (updatedTitle, id) => {
+      setTodos(
+        todos.map((todo) => {
+          if (todo.id === id) {
+            todo.title = updatedTitle
+          }
+          return todo;
+        })
+      )
+    }
     
     return (
         <>
             <InputTodo addNewTodo={addNewTodo} />
-            <TodosList todosProps={todos} handleCheckboxChange={handleCheckboxChange} delTodo={delTodo} />
+            <TodosList 
+            todosProps={todos} 
+            handleCheckboxChange={handleCheckboxChange} 
+            delTodo={delTodo} 
+            setUpdate={setUpdate} />
         </>
     )
 }

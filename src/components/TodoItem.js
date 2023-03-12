@@ -42,6 +42,7 @@ const handleEditing = () => {
             value={itemProps.title}
             className={styles.textInput}
             style={editMode}
+            onChange={(e) => log}
           />
         </li>
     )

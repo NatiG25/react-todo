@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import styles from "../styles/TodoItem.module.css"
+import { FaTrash } from "react-icons/fa";
+import { AiFillEdit } from "react-icons/ai";
 
 const TodoItem = ({itemProps, handleCheckboxChange, delTodo, setUpdate}) => {
 const [editing, setEditing] = useState(false)
@@ -9,6 +11,11 @@ const completedStyle = {
   color: '#595959',
   opacity: 0.4,
   textDecoration: 'line-through',
+}
+
+const iconStyle = {
+  color: "#5e5e5e",
+  fontSize: "16px",
 }
 
 let viewMode = {};
@@ -40,8 +47,12 @@ const handleUpdatedDone = (e) => {
             <span style={itemProps.completed ? completedStyle : null}>
               {itemProps.title}
             </span>
-            <button onClick={handleEditing}>Edit</button>
-            <button onClick={() => delTodo(itemProps.id)}>Delete</button>
+            <button onClick={handleEditing}>
+              <AiFillEdit style={iconStyle} />
+            </button>
+            <button onClick={() => delTodo(itemProps.id)}>
+              <FaTrash style={iconStyle} />
+            </button>
           </div>
           <input
             type="text"

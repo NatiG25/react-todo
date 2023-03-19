@@ -1,25 +1,26 @@
-import {useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useOnClickOutside } from "./useOnClickOutside";
 
 const Navbar = () => {
-  const [dropdown, setDropdown] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const ref = useRef();
 
-useOnClickOutside(ref, dropdown, () => setDropdown(false));
+  // useOnClickOutside(ref, navbarOpen, () => setNavbarOpen(false));
 
   return (
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li ref={ref}>
-          <button onClick={() => setDropdown((prev) => !prev)}>
-            Services <span>&#8595;</span>
-          </button>
-          {dropdown && (
+    <nav className="navbar" ref={ref}>
+      <button
+      className="toggle"
+      onClick={() => setNavbarOpen((prev) => !prev)}
+      >
+        {navbarOpen ? "close" : 'open'}
+      </button>
+      <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
+        <li>
+          {navbarOpen && (
             <ul>
-              <li>Design</li>
-              <li>Development</li>
+              <li>Home</li>
+              <li>About</li>
             </ul>
           )}
         </li>

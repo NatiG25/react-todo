@@ -1,1 +1,1 @@
-# react-todo
+# Todo List (React)
